@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/weadv?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: Zx4131240.
+    #配置监控拦截的filters，去掉后监控界面sql将无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    #最大活跃数
+    maxActive: 20
+    #初始化数量
+    initialSize: 1
+    #最大连接等待超过时间
+    maxWait: 60000
+    #打开PSCache，并且制定每个连接PSCatch的大小
+    poolPreparedStatement: true
+    maxPreparedStatementPerConnectionSize: 20
+    #通过connectionProperties属性来打开mergeSql功能：慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    minidle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableldleTimeMillis: 300000
+    validationQuery: select 1 from dual
+    testWhileIdle: true
+    testOneBorrow: false
+    testOneReturn: false
+  jpa:
+    show_sql: false
+    hibernate:
+      ddl-auto: update
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        use_sql_comments: true
+
+
+  mvc:
+      view:
+        suffix: .jsp
+#        prefix: /page/
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
