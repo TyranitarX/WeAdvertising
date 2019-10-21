@@ -1,4 +1,4 @@
-package com.weadvertising.Entity;
+package com.opinionsys.Entity;
 
 import javax.persistence.*;
 
@@ -16,6 +16,9 @@ public class User {
 
     @Column
     private String password;
+
+    @Column
+    private int is_deleted;
 
     public int getUid() {
         return uid;
@@ -39,5 +42,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getIs_deleted() {
+        return is_deleted;
+    }
+
+    public void setIs_deleted(int is_deleted) {
+        this.is_deleted = is_deleted;
     }
 }

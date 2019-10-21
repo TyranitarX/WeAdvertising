@@ -1,7 +1,7 @@
-package com.weadvertising.Service;
+package com.opinionsys.Service;
 
 
-import com.weadvertising.Entity.User;
+import com.opinionsys.Entity.User;
 
 public interface UserService {
     public Integer login(User user);

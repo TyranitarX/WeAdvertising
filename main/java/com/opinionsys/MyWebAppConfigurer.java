@@ -1,4 +1,4 @@
-package com.weadvertising;
+package com.opinionsys;
 
 
 import com.alibaba.druid.support.logging.Log;

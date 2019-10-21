@@ -1,8 +1,8 @@
-package com.weadvertising.Service.imp;
+package com.opinionsys.Service.imp;
 
-import com.weadvertising.Entity.User;
-import com.weadvertising.JPA.UserJPA;
-import com.weadvertising.Service.UserService;
+import com.opinionsys.Entity.User;
+import com.opinionsys.JPA.UserJPA;
+import com.opinionsys.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

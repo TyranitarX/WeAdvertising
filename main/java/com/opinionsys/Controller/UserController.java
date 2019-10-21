@@ -1,8 +1,8 @@
-package com.weadvertising.Controller;
+package com.opinionsys.Controller;
 
 
-import com.weadvertising.Entity.User;
-import com.weadvertising.Service.UserService;
+import com.opinionsys.Entity.User;
+import com.opinionsys.Service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
