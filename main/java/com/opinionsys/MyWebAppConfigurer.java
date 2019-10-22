@@ -3,10 +3,13 @@ package com.opinionsys;
 
 import com.alibaba.druid.support.logging.Log;
 import com.alibaba.druid.support.logging.LogFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 
 /**
@@ -23,4 +26,5 @@ public class MyWebAppConfigurer implements WebMvcConfigurer {
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
         WebMvcConfigurer.super.addViewControllers(registry);
     }
+
 }

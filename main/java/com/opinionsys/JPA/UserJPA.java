@@ -1,7 +1,10 @@
 package com.opinionsys.JPA;
 
 import com.opinionsys.Entity.User;
+import org.springframework.stereotype.Repository;
 
-public interface UserJPA extends BaseJPA<User,Integer> {
+@Repository
+public interface UserJPA extends BaseJPA<User,Integer>{
     public User findByUsername(String username);
 }
+

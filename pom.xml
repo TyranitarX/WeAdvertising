@@ -9,9 +9,9 @@
     <packaging>war</packaging>
 
     <name>useropinion</name>
-    <description>Online music site</description>
+    <description>music</description>
 
-    <parent>
+     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.2.RELEASE</version>
@@ -96,14 +96,31 @@
         </dependency>
     </dependencies>
 
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>main/webapp</directory>
+                <!--注意此次必须要放在此目录下才能被访问到 -->
+                <targetPath>META-INF/resources</targetPath>
+                <includes>
+                    <include>**/**</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 
 
 </project>

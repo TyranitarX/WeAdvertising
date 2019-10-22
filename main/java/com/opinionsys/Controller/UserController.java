@@ -1,37 +1,37 @@
 package com.opinionsys.Controller;
 
-
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.opinionsys.Entity.User;
 import com.opinionsys.Service.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-
-
-import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
-public class UserController {
-    Logger log = LoggerFactory.getLogger(UserController.class);
+@RequestMapping("/")
+public class UserController  {
     @Autowired
-    UserService userService;
-    ModelAndView modelAndView;
-    @RequestMapping("/doLogin")
-    public ModelAndView login (User user, HttpSession session){
-        log.info("用户登录");
-        int sign=userService.login(user);
-        if (sign==1){
-            modelAndView=new ModelAndView("index");
-            session.setAttribute("user",user);
-        }
-        else {
-            modelAndView=new ModelAndView("login");
-            modelAndView.addObject("error","用户名或密码错误");
-        }
-        return modelAndView;
+    private UserService userService;
+
+    @RequestMapping
+    @ResponseBody
+    public Map<String,Object> UserLogin(@RequestBody String json){
+        Map<String,Object> returnMap = new HashMap<>();
+        JSONObject object = JSON.parseObject(json);
+        User user=new User();
+        user.setUsername(object.getString("username"));
+        user.setPassword(object.getString("password"));
+        int key =userService.login(user);
+        returnMap.put("code", key);
+        return returnMap;
+
     }
+
 }

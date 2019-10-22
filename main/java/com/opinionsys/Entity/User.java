@@ -2,6 +2,7 @@ package com.opinionsys.Entity;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table
 public class User {
